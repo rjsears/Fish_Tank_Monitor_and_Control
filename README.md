@@ -3,6 +3,6 @@
   <br>
   Fish Tank Control & Monitoring Documentation
 </h1>
-<h4 align="center">Be sure to :star: my configuration repo so you can keep up to date on any daily progress!</h4>
+<h4 align="center">Be sure to :star: my repo so you can keep up to date on any updates and progress!</h4>
 
 
