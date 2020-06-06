@@ -64,15 +64,14 @@ The system is designed to monitor(m), record(r) and provide system notifications
   <li>LUX (m, r)</li>
   <li>Kelvin (m, r)</li>
 </ul>
-<br>
-In addition, the system is designed for the manual entry of the following:
+The system is also designed for the manual entry of the following:
 <ul>
   <li>GH</li>
   <li>KH</li>
   <li>PO4</li>
-<ul>
-  
-
+</ul>
+![Screenshot of Manual Parameter Entry](https://i.imgur.com/pgK6Z9y.jpg)  
+<br>
   
 One of the best aspects of the system (IMHO) is the notification system. With this system you can create highly refined notifications based on pretty much every monitored/measured parameter:
 
