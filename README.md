@@ -109,7 +109,7 @@ Price: $469.00<br><br>
 <br><hr>
 
 #### Atlas Scientific Hydroponic Sensor Kit
-This kit utilizes a Adafruit WiFi Feather Arduino clone and a Ph, EC and DS18B20 temperature probe. Data is uploaded to Thingspeak about every 10 to 15 seconds and our script reaches out to the Thingspeak API to grab the data. Eventually we will rewrite the sketch to log to our local MySQL/Influx database and eliminate Thingspeak entirely.
+This kit utilizes a Adafruit WiFi Feather Arduino clone connected to pH, EC and DS18B20 probes. Data is uploaded to Thingspeak about every 10 to 15 seconds and our script reaches out to the <a href="https://community.thingspeak.com/documentation%20.../api/">Thingspeak API</a> to grab the data. Eventually we will <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/issues/2">rewrite</a> the sketch to log to our local MySQL/Influx database and eliminate Thingspeak entirely.
 
 Purchased from: <a href="https://www.atlas-scientific.com/kits/wi-fi-hydroponics-kit/">Atlas Scientific</a><br>
 Price: $349.00<br><br>
