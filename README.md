@@ -103,8 +103,9 @@ Here is a list of all of the parts that I utilized to build this project along w
 The Seneye Reef Kit provides the sensors we use to measure Ammonia (Bound & Free), O2 Potential, PAR, LUX & Kelvin. It also measures pH and Temperature, however we utilize the Atlas probes for those measurements. Seneye has an <a href="https://api.seneye.com/">API</a> to access the information from the Reef Kit. This requires internet access so in the even of loss of internet, you would lose access to these readings.
 
 Purchased from: <a href="https://www.amazon.com/gp/product/B01AZP0X7Y/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1">Amazon</a>
+<br>
 Price: $469.00
-<img src="https://i.imgur.com/ExNv9tJl.jpg" alt="Seneye Reef Pack">
+<img src="https://i.imgur.com/7Ngsz1Qm.jpg" alt="Seneye Reef Pack">
 
 
 
