@@ -72,7 +72,9 @@ The system is also designed for the manual entry of the following:
 </ul>
 
 <center>
+  
 ![Screenshot of Manual Parameter Entry](https://i.imgur.com/VnVMIoP.jpg)
+
 </center>
 
 <br>
