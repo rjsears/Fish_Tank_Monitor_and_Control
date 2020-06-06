@@ -46,8 +46,7 @@ This Repo is designed to monitor and manage my smart fish tank.  It is not reall
 
 ![Screenshot of Main Control Panel](https://i.imgur.com/alipybm.jpg)
 
-<br><hr><br>
-
+<hr>
 #### <a name="overview"></a>Overview
 Using a combination of sensors and smart power strips, this repo provides the basis for someone to manage and monitor their own fresh or salt water tank. It is not really intended to be a "plug-and-play" installable repo but rather a starting point for someone that is interested in creating their own solution using parts of this repo. That being said, one could use almost everything here, but some of the elements rely on stuff I have already in place such as the power/solor monitoring that you see on the main gauge page and the influx/Grafana. Those items can still be added and I plan on updating the documentation to show how to install and configure both influxDB as well as Grafana.
 <br><br>
