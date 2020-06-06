@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    {% include 'meta.html' %}
+    {% block styles %}{% endblock %}
+    <p style="text-align:center;"><img src="{{url_for('static', filename='tank_control.png')}}" height="200" width="200"></p>
+    <center>
+    <iframe src="http://free.timeanddate.com/clock/i767eypi/n197/tct/pct/ftb/tt0/th2" frameborder="0" width="332" height="18" allowTransparency="true"></iframe>
+  </center>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/e3deaeba31.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,500" rel="stylesheet">
+  </head>
+
+  <body class="{{template}}">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+
+</html>

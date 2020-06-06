@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/parameters.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="formwrapper">
+  <h2 class="title">Record GH & KH, & PO4 Tank Parameters</h2>
+
+  <form method="POST" action="">
+    {{form.hidden_tag()}}
+    {% for field in form if field.widget.input_type != 'hidden' and field.type != "SubmitField" %}
+    <div class="form-field">{{ field.label }} {{ field(size=20) }}
+      {% endfor %}
+    </div>
+  {{ form.submit }}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% include 'meta.html' %}
+
+
+<p style="text-align:center;"><img src="{{url_for('static', filename='tank_control.png')}}" height="200" width="200"></p>
+    <center>
+    <iframe src="http://free.timeanddate.com/clock/i767eypi/n197/tct/pct/ftb/tt0/th2" frameborder="0" width="332" height="18" allowTransparency="true"></iframe>
+  </center>
+
+    <script src="https://kit.fontawesome.com/e3deaeba31.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,500" rel="stylesheet">
+  </head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}" rel="stylesheet" type="text/css">
+<p>
+<center>
+    <br>
+<a class="tank_manager_button" href="{{ url_for('tank_control') }}">Return to Tank Manager</a>
+</center>
+<br>
+<center>
+<embed src="http://scripts/pml" style="width:1500px; height: 2500px;">
+

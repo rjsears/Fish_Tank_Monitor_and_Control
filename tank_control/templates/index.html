@@ -1,0 +1,429 @@
+<!-- Template File for tank_control web interface [DATABASE VERSION]
+__author__ = 'Richard J. Sears'
+VERSION = "V1.0.0 (2020-06-06)"
+richardjsears@gmail.com
+-->
+
+<!doctype html>
+<html>
+   <head>
+       <style>
+
+        p {text-align:center;color:blue;}
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;border-width:0px;border-style:solid;text-align: center}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#26ADE4;}
+        .tg .tg-6f4q{font-size:20px;font-family:Arial, Helvetica, sans-serif !important;;background-color:#26ade4;color:#ffffff;border-color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-3a3g{font-size:14px;font-family:Arial, Helvetica, sans-serif !important;;text-align:center;vertical-align:top}
+        .tg .tg-lrzf{font-size:14px;font-family:Arial, Helvetica, sans-serif !important;;text-align:center}
+        </style>
+
+      <title>75 Gallon Planted - Tank Control</title>
+      <meta http-equiv="refresh" content="60" >
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}" rel="stylesheet" type="text/css">
+       <script src="{{url_for('static', filename='steelseries.js')}}"></script>
+      <link rel="icon" type="image/png" href="{{url_for('static', filename='tank_favicon.ico')}}">
+   </head>
+   <body>
+      <p>
+
+         <img src="{{url_for('static', filename='tank_control.png')}}" height="100" width="100"><br>
+         <iframe src="http://free.timeanddate.com/clock/i767eypi/n197/tct/pct/ftb/tt0/th2" frameborder="0" width="332" height="18" allowTransparency="true"></iframe>
+      </p>
+<center>
+      <body onload=init()>
+
+<center>
+
+<table class="tg" width=65% border="0">
+  <tr>
+    <th class="tg-6f4q" colspan="10">Tank Status and Control</th>
+  </tr>
+  <tr>
+      <td class="tg-3a3g">Water<br>Level</td>
+    <td class="tg-3a3g">Temperature<br></td>
+    <td class="tg-3a3g">pH</td>
+    <td class="tg-3a3g">Free<br>Ammonia</td>
+    <td class="tg-3a3g">EC/TDS</td>
+    <td class="tg-3a3g">Air<br>Pump</td>
+    <td class="tg-3a3g">Injecting<br>CO2</td>
+    <td class="tg-3a3g">FX6<br>Filter On</td>
+    <td class="tg-3a3g">406<br>Filter On</td>
+    <td class="tg-3a3g">UV Pump<br>& Light On</td>
+  </tr>
+  <tr>
+
+      <td class="tg-3a3g">
+      <img src="{{url_for('static', filename='led_circle_green.png')}}" height="45" width="45">
+      </td>
+<td class="tg-3a3g">
+                  {% if temp_status_high  %}
+                  <img src="{{url_for('static', filename='dark-red-led-circle-md.png')}}" height="45" width="45">
+                  {% elif temp_status_low  %}
+                  <img src="{{url_for('static', filename='led_circle_blue.png')}}" height="45" width="45">
+                  {% else %}
+                  <img src="{{url_for('static', filename='led_circle_green.png')}}" height="45" width="45">
+                  {% endif %}
+</td>
+
+    <td class="tg-3a3g">
+                  {% if ph_stauts_low or ph_shatus_high %}
+        <img src="{{url_for('static', filename='dark-red-led-circle-md.png')}}" height="45" width="45">
+		         {% else %}
+                  <img src="{{url_for('static', filename='led_circle_green.png')}}" height="45" width="45">
+                  {% endif %}
+</td>
+    <td class="tg-3a3g">
+                  {% if nh3_status %}
+		  <img src="{{url_for('static', filename='dark-red-led-circle-md.png')}}" height="45" width="45">
+		  {% else %}
+                  <img src="{{url_for('static', filename='led_circle_green.png')}}" height="45" width="45">
+                  {% endif %}
+</td>
+    <td class="tg-3a3g">
+                     {% if ec_tds_led %}
+		        <img src="{{url_for('static', filename='dark-red-led-circle-md.png')}}" height="45" width="45">
+		        {% else %}
+                  <img src="{{url_for('static', filename='led_circle_green.png')}}" height="45" width="45">
+                  {% endif %}
+</td>
+    <td class="tg-3a3g">
+                     {% if airpump_status %}
+	        <a href="{{ url_for('toggle_airpump_power') }}"><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></a>
+    	    {% else %}
+    	        <a href="{{ url_for('toggle_airpump_power') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></a>
+
+	    {% endif %}
+</td>
+    <td class="tg-3a3g">
+               {% if injecting_co2_led %}
+	        <a href="{{ url_for('toggle_ph_controller_power') }}"><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></a>
+    	    {% else %}
+    	        <a href="{{ url_for('toggle_ph_controller_power') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></a>
+
+	    {% endif %}
+    </td>
+      <td class="tg-3a3g">
+                     {% if fx6_status %}
+               <a href="{{ url_for('toggle_fx6_power') }}"><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></a>
+               {% else %}
+               <a href="{{ url_for('toggle_fx6_power') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></a>
+               {% endif %}
+</td>
+      <td class="tg-3a3g">
+                     {% if f406_status %}
+	           <a href="{{ url_for('toggle_406_power') }}"><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></a>
+    	       {% else %}
+    	        <a href="{{ url_for('toggle_406_power') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></a>
+	           {% endif %}
+</td>
+      <td class="tg-3a3g">
+                     {% if uv_pump_status %}
+	        <a href="{{ url_for('toggle_uv_pump_power') }}"><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></a>
+    	    {% else %}
+    	        <a href="{{ url_for('toggle_uv_pump_power') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></a>
+
+	    {% endif %}
+</td>
+  </tr>
+  </tr>
+</table>
+         <br><br>
+         <canvas id=TankTemp width=250 height=250>No canvas in your browser...sorry...</canvas>
+         <canvas id=TankpH width=250 height=250></canvas>
+         <canvas id=TankNH3 width=250 height=250></canvas>
+         <canvas id=TankNH4 width=250 height=250></canvas>
+         <canvas id=TankO2 width=250 height=250></canvas>
+         <canvas id=TankEC width=250 height=250></canvas>
+         <canvas id=TankTDS width=250 height=250></canvas>
+         <canvas id=TankPAR width=250 height=250></canvas>
+         <canvas id=TankLUX width=250 height=250></canvas>
+         <canvas id=TankKelvin width=250 height=250></canvas>
+         <canvas id=TankLastWCGallons width=250 height=250></canvas><br><br><br>
+        <canvas id=TotalGallons></canvas>
+        <canvas id=TotalPowerUse></canvas>
+        <canvas id=TotalPowerImporting></canvas>
+        <canvas id=TotalSolar></canvas>
+
+
+
+
+
+<br><br>
+<iframe src="http://scripts:3000/d-solo/-Kya3kUWk/fish-tank-75-gallon-planted?refresh=10s&orgId=1&panelId=7&theme=light" width="450" height="200" frameborder="0"></iframe>
+<iframe src="http://scripts:3000/d-solo/-Kya3kUWk/fish-tank-75-gallon-planted?refresh=10s&orgId=1&panelId=9&theme=light" width="450" height="200" frameborder="0"></iframe>
+    <br>
+    <br>
+<a class="notification_button" href="{{ url_for('notifications') }}">Manage Notifications & Logging</a>
+<a class="tank_parameter_button" href="{{ url_for('parameters') }}">Enter Tank Parameters</a>
+    <a class="log_button" href="http://scripts/logs">View System Log</a>
+    <br>
+    <h4>Last System Update: {{current_military_time}}</h4>
+
+      </body>
+
+   <script>
+      function init()
+      {
+              var tank_temp = new steelseries.Radial(
+                              'TankTemp', {
+                                      section: Array(steelseries.Section(55,78,'rgba(0,0,255,0.3)'),
+                                      steelseries.Section(78,85,'rgba(0,255,0,0.3)'),
+						              steelseries.Section(85,95,'rgba(225,0,0,0.3)')),
+                                    //  area: Array(steelseries.Section(74,78,'rgba(0,255,0,0.3)')),
+                                      minValue: 55,
+                                      maxValue: 95,
+                                      threshold: 85,
+                                      ledVisible: false,
+                                      titleString: 'Temperature',
+                                    //  unitString: 'Temperature',
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      lcdDecimals: 1,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+
+              var tank_ph = new steelseries.Radial(
+                              'TankpH', {
+                                      section: Array(steelseries.Section(5,7.8,'rgba(225,0,0,0.3)'),
+				                      steelseries.Section(5.7,7.8,'rgba(0,255,0,0.3)'),
+						              steelseries.Section(7.8,11,'rgba(225,0,0,0.3)')),
+                                      area: Array(steelseries.Section(5.8,7.8,'rgba(0,255,0,0.3)')),
+                                      minValue: 5,
+                                      maxValue: 11,
+                                      ledVisible: false,
+                                      lcdVisible: true,
+                                      threshold: 7.8,
+                                      titleString: 'pH',
+                                    //  unitString: 'pH',
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+
+              var tank_nh3 = new steelseries.Radial(
+                              'TankNH3', {
+                                      section: Array(steelseries.Section(0,.06,'rgba(0,255,0,0.3)')),
+                                      area: Array(steelseries.Section(.06,.2,'rgba(255,0,0,0.5)')),
+                                   //   section: Array(steelseries.Section(0,65,'rgba(225,0,0,0.3)')),
+                                   //   area: Array(steelseries.Section(675,800,'rgba(0,255,0,0.3)')),
+                                      minValue: 0.0,
+                                      maxValue: 0.2,
+                                      ledVisible: true,
+                                      lcdVisible: true,
+                                      threshold: .06,
+                                      titleString: 'Free Ammonia',
+                                      unitString: 'TOXIC',
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      lcdDecimals: 4,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+
+              var tank_nh4 = new steelseries.Radial(
+                              'TankNH4', {
+                                      section: Array(steelseries.Section(0,1600,'rgba(0,255,0,0.3)')),
+                                      area: Array(steelseries.Section(1600,1800,'rgba(255,0,0,0.5)')),
+                                    //  section: Array(steelseries.Section(0,650,java.awt.Color.GREEN)')),
+                                   //   area: Array(steelseries.Section(675,800,'rgba(0,255,0,0.3)')),
+                                      minValue: 100,
+                                      maxValue: 1800,
+                                      ledVisible: true,
+                                      lcdVisible: true,
+                                      threshold: 1600,
+                                      titleString: 'Bound Ammonia',
+                                     // unitString: 'NH4 Level',
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      lcdDecimals: 0,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+      
+              var tank_o2potential = new steelseries.Radial(
+                              'TankO2', {
+                                      minValue: 0,
+                                      maxValue: 15,
+                                      ledVisible: false,
+                                      lcdVisible: true,
+                                      threshold: 1400,
+                                      titleString: 'O2 Potential',
+                                     // unitString: 'Potential',
+                                      lcdDecimals: 0,
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+
+              var tank_ec = new steelseries.Radial(
+                              'TankEC', {
+                                   //   gaugeType: steelseries.GaugeType.TYPE4,
+                                      section: Array(steelseries.Section(0,700,'rgba(0,255,0,0.3)')),
+                                      area: Array(steelseries.Section(700,1000,'rgba(255,0,0,0.5)')),
+                                      titleString: "EC in μS/cm",
+                                     // unitString: "EC in μS/cm",
+                                      minValue: 0,
+                                      maxValue: 1000,
+                                      threshold: 700,
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                    //                valueColor: steelseries.ColorDef.BLUE,
+                                      lcdDecimals: 0,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      ledColor: steelseries.LedColor.RED_LED,
+                              });
+
+              var tank_tds = new steelseries.Radial(
+                              'TankTDS', {
+                                   //   gaugeType: steelseries.GaugeType.TYPE4,
+                                      section: Array(steelseries.Section(0,500,'rgba(0,255,0,0.3)')),
+                                      area: Array(steelseries.Section(500,800,'rgba(255,0,0,0.5)')),
+                                      titleString: "TDS in ppm",
+                                     // unitString: "TDS in ppm",
+                                      minValue: 0,
+                                      maxValue: 800,
+                                      threshold: 500,
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                    //                valueColor: steelseries.ColorDef.BLUE,
+                                      lcdDecimals: 0,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      ledColor: steelseries.LedColor.RED_LED,
+                              });
+
+              var tank_par = new steelseries.Radial(
+                              'TankPAR', {
+                                      minValue: 0,
+                                      maxValue: 150,
+                                      ledVisible: false,
+                                      lcdVisible: true,
+                                  //    threshold: 1400,
+                                      titleString: 'PAR',
+                                    //  unitString: 'PAR',
+                                      lcdDecimals: 0,
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+
+              var tank_lux = new steelseries.Radial(
+                              'TankLUX', {
+                                      minValue: 0,
+                                      maxValue: 7000,
+                                      ledVisible: false,
+                                      lcdVisible: true,
+                                  //    threshold: 1400,
+                                      titleString: 'LUX',
+                                    //  unitString: 'LUX',
+                                      lcdDecimals: 0,
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+
+              var tank_kelvin = new steelseries.Radial(
+                              'TankKelvin', {
+                                      minValue: 0,
+                                      maxValue: 7000,
+                                      ledVisible: false,
+                                      lcdVisible: true,
+                                  //    threshold: 1400,
+                                      titleString: 'Kelvin',
+                                    //  unitString: 'Kelvin',
+                                      lcdDecimals: 0,
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+
+              var tank_gallons_last = new steelseries.Radial(
+                              'TankLastWCGallons', {
+                                //   section: Array(steelseries.Section(110,120,'rgba(220,220,0,0.3)')),
+                                //   area: Array(steelseries.Section(110,120,'rgba(255,0,0,0.3)')),
+                                      minValue: 0,
+                                      maxValue: 100,
+                                      ledVisible: false,
+                                      lcdVisible: true,
+                                      threshold: 35,
+                                      titleString: 'Last WC Gallons',
+                                      unitString: '3/2/2020',
+                                      lcdDecimals: 0,
+                                      frameDesign: steelseries.FrameDesign.BLACK_METAL,
+                                      backgroundColor: steelseries.BackgroundColor.LIGHT_GRAY,
+                                      lcdColor: steelseries.LcdColor.RED,
+                                      pointerType: steelseries.PointerType.TYPE16
+                              });
+
+               total_gallons_used = new steelseries.DisplaySingle('TotalGallons', {
+                            width: 120,
+                            height: 40,
+			    lcdDecimals:  0,
+                            unitString: "unit",
+                            unitStringVisible: false,
+                            headerString: "Total Gallons To Date",
+                            headerStringVisible: true,
+                            lcdColor: steelseries.LcdColor.SECTIONS,
+                            });
+
+	      watts_in_use = new steelseries.DisplaySingle('TotalPowerUse', {
+                            width: 120,
+                            height: 40,
+			    lcdDecimals:  0,
+                            unitString: "unit",
+                            unitStringVisible: false,
+                            headerString: "Total Watts in Use",
+                            headerStringVisible: true,
+                            lcdColor: steelseries.LcdColor.SECTIONS,
+                            });
+
+	      watts_importing = new steelseries.DisplaySingle('TotalPowerImporting', {
+                            width: 120,
+                            height: 40,
+			    lcdDecimals:  0,
+                            unitString: "unit",
+                            unitStringVisible: false,
+                            headerString: "Watts from APS",
+                            headerStringVisible: true,
+                            lcdColor: steelseries.LcdColor.RED,
+                            });
+
+	      watts_solar = new steelseries.DisplaySingle('TotalSolar', {
+                            width: 120,
+                            height: 40,
+			    lcdDecimals:  0,
+                            unitString: "unit",
+                            unitStringVisible: false,
+                            headerString: "Solar Generation Watts",
+                            headerStringVisible: true,
+                            lcdColor: steelseries.LcdColor.SECTIONS,
+                            });
+
+          tank_temp.setValue({{temp}});
+          tank_ph.setValue({{ph}});
+          tank_nh3.setValue({{nh3}});
+          tank_nh4.setValue({{nh4}});
+          tank_o2potential.setValue({{08}});
+          tank_ec.setValue({{ec}});
+          tank_tds.setValue({{tds}});
+          tank_par.setValue({{par}});
+          tank_lux.setValue({{lux}});
+          tank_kelvin.setValue({{kelvin}});
+
+          watts_in_use.setValue({{total_current_power_utilization}});
+	      watts_importing.setValue({{total_current_power_import}});
+	      watts_solar.setValue({{total_current_solar_production}});
+	      total_gallons_used.setValue(450);
+	      tank_gallons_last.setValue(40);
+      
+
+      
+      }
+   </script>
+           </html>

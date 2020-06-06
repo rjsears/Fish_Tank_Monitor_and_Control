@@ -1,0 +1,27 @@
+<html>
+ <head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['gauge']});
+    google.charts.setOnLoadCallback(drawGauge);
+
+    var gaugeOptions = {min: 0, max: 0.5, yellowFrom: 0.2, yellowTo: 0.3,
+      redFrom: 0.3, redTo: 0.5, minorTicks: 10};
+    var gauge;
+
+    function drawGauge() {
+      gaugeData = new google.visualization.DataTable();
+      gaugeData.addColumn('number', 'nh3');
+      gaugeData.addRows(1);
+      gaugeData.setCell(0, 0, 0.016);
+      gauge = new google.visualization.Gauge(document.getElementById('gauge_div'));
+      gauge.draw(gaugeData, gaugeOptions);
+    }
+
+  </script>
+ </head>
+ <body>
+  <div id="gauge_div" style="width:280px; height: 140px;"></div>
+ </body>
+</html>
+

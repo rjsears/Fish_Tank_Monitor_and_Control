@@ -1,0 +1,333 @@
+<!-- Template File for tank_control web interface [DATABASE VERSION]
+__author__ = 'Richard J. Sears'
+VERSION = "V1.0.0 (2020-06-06)"
+richardjsears@gmail.com
+-->
+
+<!doctype html>
+<html>
+   <head>
+       <style>
+
+        p {text-align:center;color:blue;}
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;border-width:0px;border-style:solid;text-align: center}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#26ADE4;}
+        .tg .tg-6f4q{font-weight:bold;font-size:14px;font-family:Arial, Helvetica, sans-serif !important;;text-align:center}
+        .tg .tg-3a3g{font-size:14px;font-family:Arial, Helvetica, sans-serif !important;;text-align:center;vertical-align:top}
+        .tg .tg-lrzf{font-size:14px;font-family:Arial, Helvetica, sans-serif !important;;text-align:center}
+        </style>
+
+      <title>75 Gallon Planted - Notifications</title>
+       <meta http-equiv="refresh" content="60">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}" rel="stylesheet" type="text/css">
+
+      <link rel="icon" type="image/png" href="{{url_for('static', filename='tank_favicon.ico')}}">
+
+   </head>
+   <body>
+      <p>
+
+         <img src="{{url_for('static', filename='tank_control.png')}}" height="200" width="200"><br>
+        <iframe src="http://free.timeanddate.com/clock/i767eypi/n197/tct/pct/ftb/tt0/th2" frameborder="0" width="332" height="18" allowTransparency="true"></iframe>
+      </p>
+
+<center>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-9wq8{border-color:#000000;text-align:center;vertical-align:middle}
+.tg .tg-iq20{font-weight:bold;background-color:#c0c0c0;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-z031{font-size:20px;font-family:Arial, Helvetica, sans-serif !important;;background-color:#26ade4;color:#ffffff;border-color:#000000;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-z031" colspan="4">Systemwide Logging &amp; Notification Control</th>
+  </tr>
+  <tr>
+    <td class="tg-iq20">Notifications</td>
+    <td class="tg-iq20">Logging</td>
+    <td class="tg-iq20" colspan="2">Logging Level</td>
+  </tr>
+  <tr>
+    {% if system_wide  %}
+    <td class="tg-c3ow">ON/OFF<br><a href="{{ url_for('toggle_notifications_systemwide') }}"><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></td>
+    {% else %}
+    <td class="tg-c3ow">ON/OFF<br><a href="{{ url_for('toggle_notifications_systemwide') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></td>
+    {% endif %}
+
+    {% if system_logging  %}
+    <td class="tg-c3ow">ON/OFF<br><a href="{{ url_for('toggle_logging') }}"><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></td>
+    {% else %}
+    <td class="tg-c3ow">ON/OFF<br><a href="{{ url_for('toggle_logging') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></td>
+    {% endif %}
+
+    {% if log_level == 'INFO' and system_logging  %}
+    <td class="tg-c3ow">Info<br><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></td>
+    {% elif log_level == 'DEBUG' and system_logging %}
+    <td class="tg-c3ow">Info<br><a href="{{ url_for('toggle_debug') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></td>
+    {% else %}
+    <td class="tg-c3ow">Info<br><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></td>
+      {% endif %}
+
+    {% if log_level == 'DEBUG' and system_logging %}
+    <td class="tg-c3ow">Debug<br><img src="{{url_for('static', filename='on_switch.png')}}" height="70" width="70"></td>
+    {% elif log_level == 'INFO' and system_logging %}
+    <td class="tg-c3ow">Debug<br><a href="{{ url_for('toggle_debug') }}"><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></td>
+    {% else %}
+     <td class="tg-c3ow">Debug<br><img src="{{url_for('static', filename='off_switch.png')}}" height="70" width="70"></td>
+    {% endif %}
+  </tr>
+</table>
+
+
+
+<center>
+
+
+
+<br><br>
+
+
+{% if system_wide and edit_notifications %}
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-23yt{border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-a6gf{font-size:20px;font-family:Arial, Helvetica, sans-serif !important;;background-color:#26ade4;border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-9va1{font-weight:bold;font-size:14px;font-family:Arial, Helvetica, sans-serif !important;;border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-uiz2{font-size:12px;border-color:#000000;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-a6gf" colspan="10"><span style="color:rgb(255, 255, 255)">Toggle Individual Notifications</span></th>
+  </tr>
+  <tr>
+    <td class="tg-9va1">FX6<br>Filter</td>
+    <td class="tg-9va1">406<br>Filter</td>
+    <td class="tg-9va1">UV Light<br>&amp; Pump</td>
+    <td class="tg-9va1">pH<br>Controller</td>
+    <td class="tg-9va1">Air<br>Pump</td>
+    <td class="tg-9va1">Temp<br>Level</td>
+    <td class="tg-9va1">Water<br>Level</td>
+    <td class="tg-9va1">pH<br>Level</td>
+    <td class="tg-9va1">nh3<br>Level</td>
+    <td class="tg-9va1">EC/TDS<br>Level</td>
+  </tr>
+  <tr>
+
+    <tr>
+   {% if fx6filter_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='fx6filter_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='fx6filter_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if f406filter_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='f406filter_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='f406filter_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if uv_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='uv_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='uv_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if phcontroller_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='phcontroller_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='phcontroller_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if airpump_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='airpump_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='airpump_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if temp_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='temp_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='temp_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if waterlevel_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='waterlevel_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='waterlevel_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if ph_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='ph_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='ph_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if nh3_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='nh3_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='nh3_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if tds_status_sms %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='tds_status_sms') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">SMS<br><br><a href="{{ url_for('modify_notifications', notifications='tds_status_sms') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+  </tr>
+
+ <tr>
+   {% if fx6filter_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='fx6filter_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='fx6filter_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if f406filter_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='f406filter_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='f406filter_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if uv_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='uv_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='uv_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if phcontroller_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='phcontroller_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='phcontroller_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if airpump_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='airpump_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='airpump_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if temp_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='temp_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='temp_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if waterlevel_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='waterlevel_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='waterlevel_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if ph_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='ph_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='ph_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if nh3_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='nh3_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='nh3_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if tds_status_pb %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='tds_status_pb') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">Push<br>Bullet<br><br><a href="{{ url_for('modify_notifications', notifications='tds_status_pb') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+  </tr>
+
+  <tr>
+   {% if fx6filter_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='fx6filter_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='fx6filter_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if f406filter_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='f406filter_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='f406filter_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if uv_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='uv_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='uv_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if phcontroller_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='phcontroller_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='phcontroller_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if airpump_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='airpump_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='airpump_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if temp_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='temp_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='temp_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if waterlevel_status_email%}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='waterlevel_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='waterlevel_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if ph_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='ph_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='ph_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if nh3_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='nh3_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='nh3_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+    {% if tds_status_email %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='tds_status_email') }}"><img src="{{url_for('static', filename='on_disc.png')}}" height="45" width="85"></td>
+    {% else %}
+    <td class="tg-vqzh">EMail<br><br><a href="{{ url_for('modify_notifications', notifications='tds_status_email') }}"><img src="{{url_for('static', filename='off_disc.png')}}" height="45" width="85"></td>
+    {% endif %}
+
+  </tr>
+
+</table>
+
+   </script>
+    <br>
+{% else %}
+{% endif %}
+
+
+
+
+{% if system_wide and not edit_notifications %}
+<a class="notification_button" href="{{ url_for('toggle_edit_notifications_menu') }}">Edit Notifications</a>
+{% elif system_wide and edit_notifications %}
+<a class="notification_button" href="{{ url_for('toggle_edit_notifications_menu') }}">Done Editing Notifications</a>
+{% else %} {% endif %}<br><br>
+<a class="tank_manager_button" href="{{ url_for('tank_control') }}">Return to Tank Manager</a>
+<a class="tank_parameter_button" href="{{ url_for('parameters') }}">Enter Tank Parameters</a>
+ <a class="log_button" href="http://scripts/logs">View System Log</a>
+<br><br>
+
+    <br><br>
+
+           </html>

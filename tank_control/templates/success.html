@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/success.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="success-wrapper">
+
+    <h1>SUCCESS!</h1>
+  <p>Tank Parameters have been recorded</p><br>
+    <a class="tank_manager_button" href="{{ url_for('tank_control') }}">Return to Tank Manager</a><br><br>
+
+</div>
+{% endblock %}
