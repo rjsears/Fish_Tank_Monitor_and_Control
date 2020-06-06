@@ -71,7 +71,9 @@ The system is also designed for the manual entry of the following:
   <li>PO4 (r)</li>
 </ul>
 
-![Screenshot of Manual Parameter Entry](https://i.imgur.com/pgK6Z9ym.jpg)  
+<center>
+![Screenshot of Manual Parameter Entry](https://i.imgur.com/VnVMIoP.jpg)
+</center>
 
 <br>
   
