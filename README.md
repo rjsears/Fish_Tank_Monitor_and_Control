@@ -70,7 +70,9 @@ The system is also designed for the manual entry of the following:
   <li>KH</li>
   <li>PO4</li>
 </ul>
+
 ![Screenshot of Manual Parameter Entry](https://i.imgur.com/pgK6Z9y.jpg)  
+
 <br>
   
 One of the best aspects of the system (IMHO) is the notification system. With this system you can create highly refined notifications based on pretty much every monitored/measured parameter:
