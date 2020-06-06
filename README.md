@@ -44,7 +44,9 @@ This Repo is designed to monitor and manage my smart fish tank.  It is not reall
   </h4>
 </div>
 
-![Screenshot of Main Control Panel](https://i.imgur.com/alipybm.jpg)
+<img src="https://i.imgur.com/alipybm.jpg" alt="Screenshot of Main Control Panel">
+
+
 
 <hr>
 
