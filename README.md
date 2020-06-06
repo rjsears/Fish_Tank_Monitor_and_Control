@@ -91,7 +91,7 @@ Log viewing can be done via the web interface. We utilize <a href=https://www.pi
 <img src="https://i.imgur.com/nCTqyeK.jpg" alt="Screenshot of Notification Panel">
 <br>
 <hr>
-Since I have an existing InfluxDB and Grafana server, I can view historical data as well:<br>
+Since I have an existing InfluxDB and Grafana server, I can view historical data as well:<br><br>
 <img src="https://i.imgur.com/GtFQm8s.jpg" alt="Grafana Historical Data">
 <br><hr>
 
