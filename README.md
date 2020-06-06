@@ -7,7 +7,8 @@
 <div align="center">
   <h4>
     <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/commits/master"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/rjsears/Fish_Tank_Monitor_and_Control?style=plastic"></a>
-    <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/rjsears/Fish_Tank_Monitor_and_Control?style=plastic"></a>    
+    <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/rjsears/Fish_Tank_Monitor_and_Control?style=plastic"></a>
+    <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/rjsears/Fish_Tank_Monitor_and_Control?style=plastic"></a>
   </h4>
 </div>
 <p><font size="3">
