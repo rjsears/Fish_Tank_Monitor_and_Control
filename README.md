@@ -49,6 +49,31 @@ This Repo is designed to monitor and manage my smart fish tank.  It is not reall
 #### <a name="overview"></a>Description and Overview
 Using a combination of sensors and smart power strips, this repo provides the basis for someone to manage and monitor their own fresh or salt water tank. It is not really intended to be a "plug-and-play" installable repo but rather a starting point for someone that is interested in creating their own solution using parts of this repo. That being said, one could use almost everything here, but some of the elements rely on stuff I have already in place such as the power/solor monitoring that you see on the main gauge page and the influx/Grafana. Those items can still be added and I plan on updating the documentation to show how to install and configure both influxDB as well as Grafana.
 <br><br>
-The system utilizes python3, flask, MySQL8, influxDB and Grafana. There is one Arduino sketch for the Feather that I use to gather the sensor data itself. I have all of the part listed below in the parts section so you can see where to get them and the expense. Overall, it was minimal based on what it provides, at least in my opinion. One of the best aspects of the system (IMHO) is the notification system. With this system you can create highly refined notifications based on pretty much every monitored/measured parameter:
+The system utilizes python3, flask, MySQL8, influxDB and Grafana. There is one Arduino sketch for the Feather that I use to gather the sensor data itself. I have all of the part listed below in the parts section so you can see where to get them and the expense. Overall, it was minimal based on what it provides, at least in my opinion. 
+<br><br>
+The system is designed to monitor(m), record(r) and provide system notifications(n) on the following parameters:<br>
+<ul>
+  <li>Temperature (m, r, n)</li>
+  <li>pH (m, r, n)</li>
+  <li>Toxic Free Ammonia (NH3) (m, r, n)</li>
+  <li>Bound Ammonix (NH4) (m, r)</li>
+  <li>O2 Potential (m, r)</li>
+  <li>Electrical Conductivity in μS/cm (m, r, n)</li>
+  <li>Total Disolved Solids in ppm (m, r, n)</li>
+  <li>PAR (m, r)</li>
+  <li>LUX (m, r)</li>
+  <li>Kelvin (m, r)</li>
+</ul>
+<br>
+In addition, the system is designed for the manual entry of the following:
+<ul>
+  <li>GH</li>
+  <li>KH</li>
+  <li>PO4</li>
+<ul>
+  
+
+  
+One of the best aspects of the system (IMHO) is the notification system. With this system you can create highly refined notifications based on pretty much every monitored/measured parameter:
 
 ![Screenshot of Notification Panel](https://i.imgur.com/OWLgtRf.jpg)
