@@ -51,7 +51,7 @@ Using a combination of sensors and smart power strips, this repo provides the ba
 <br><br>
 The system utilizes python3, flask, MySQL8, influxDB and Grafana. There is one Arduino sketch for the Feather that I use to gather the sensor data itself. I have all of the part listed below in the parts section so you can see where to get them and the expense. Overall, it was minimal based on what it provides, at least in my opinion. 
 <br><br>
-The system is designed to monitor(m), record(r) and provide system notifications(n) on the following parameters:<br>
+The system is designed to monitor(m), record(r) and provide system notifications(n) on the following parameters:
 <ul>
   <li>Temperature (m, r, n)</li>
   <li>pH (m, r, n)</li>
@@ -75,8 +75,15 @@ The system is also designed for the manual entry of the following:
 </center>
 <br>
   
-One of the best aspects of the system (IMHO) is the notification system. With this system you can create highly refined notifications based on pretty much every monitored/measured parameter. Notification via E-Mail, SMS (Twilio($)) and PushBullet are supported as well as configurable logging and loggin levels:
+One of the best aspects of the system (IMHO) is the notification system. With this system you can create highly refined notifications based on pretty much every monitored/measured parameter. Notification via E-Mail, SMS (Twilio($)) and PushBullet are supported as well as configurable logging and logging levels:
 
 <img src="https://i.imgur.com/OWLgtRf.jpg" alt="Screenshot of Nitification Panel">
+<br>
+Log viewing can be done via the web interface. We utilize <a href=https://www.pimpmylog.com/>Pimp My Log</a> as the backend to provide the web interface to the generated logs providing a means to view them without having to ssh into the main server:<br>
+<img src="https://i.imgur.com/nCTqyeK.jpg" alt="Screenshot of Nitification Panel">
+<br>
+
+
+
 
 
