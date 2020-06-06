@@ -66,16 +66,20 @@ The system is designed to monitor(m), record(r) and provide system notifications
   <li>LUX (m, r)</li>
   <li>Kelvin (m, r)</li>
 </ul>
+
 The system is also designed for the manual entry of the following:
 <ul>
   <li>GH (r)</li>
   <li>KH (r)</li>
   <li>PO4 (r)</li>
 </ul>
+
 <center>
 <img src="https://i.imgur.com/VnVMIoP.jpg" alt="Screenshot of Manual Parameter Entry" height="500" width="400">
 </center>
+
 <br><hr><br>
+
 #### Notifications  
 One of the best aspects of the system (IMHO) is the notification system. With this system you can create highly refined notifications based on pretty much every monitored/measured parameter. Notification via E-Mail, SMS (Twilio($)) and PushBullet are supported as well as configurable logging and logging levels:
 
