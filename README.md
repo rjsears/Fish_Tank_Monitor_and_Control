@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a name="fish_tank_logo" href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control"><img src="https://raw.githubusercontent.com/rjsears/Fish_Tank_Monitor_and_Control/master/tank_control/static/tank_control.png alt="Fish Tank Control" height="200" width="200"></a>
+  <a name="fish_tank_logo" href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control"><img src="https://raw.githubusercontent.com/rjsears/Fish_Tank_Monitor_and_Control/master/tank_control/static/tank_control.png" alt="Fish Tank Control" height="200" width="200"></a>
   <br>
   Fish Tank Control & Monitoring Documentation
 </h1>
