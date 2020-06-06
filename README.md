@@ -11,7 +11,7 @@
   </h4>
 </div>
 <p><font size="3">
-This Repo is designed to monitor and manage my smart fish tank.  It is not really designed as a "plug-and-play" application, rather a starting point for someone that wants to use all (or part) of the repo to monitor and manage their own fish tank. Hopefully this might provide some inspiration for others in regards to their tank automation projects. Contributions are always welcome.</p>
+This Repo is designed to monitor and manage our smart fish tank.  It is not really designed as a "plug-and-play" application, rather a starting point for someone that wants to use all (or part) of the repo to monitor and manage their own fish tank. Hopefully this might provide some inspiration for others in regards to their tank automation projects. Contributions are always welcome.</p>
 <div align="center"><a name="top_menu"></a>
   <h4>
     <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control#overview">
@@ -105,7 +105,7 @@ The Seneye Reef Kit provides the sensors we use to measure Ammonia (Bound & Free
 Purchased from: <a href="https://www.amazon.com/gp/product/B01AZP0X7Y/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1">Amazon</a>
 <br>
 Price: $469.00<br>
-<img src="https://i.imgur.com/7Ngsz1Qm.jpg" alt="Seneye Reef Pack">
+<img src="https://i.imgur.com/7Ngsz1Qs.jpg" alt="Seneye Reef Pack">
 
 
 
