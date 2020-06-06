@@ -66,12 +66,12 @@ The system is designed to monitor(m), record(r) and provide system notifications
 </ul>
 The system is also designed for the manual entry of the following:
 <ul>
-  <li>GH</li>
-  <li>KH</li>
-  <li>PO4</li>
+  <li>GH (r)</li>
+  <li>KH (r)</li>
+  <li>PO4 (r)</li>
 </ul>
 
-![Screenshot of Manual Parameter Entry](https://i.imgur.com/pgK6Z9yl.jpg)  
+![Screenshot of Manual Parameter Entry](https://i.imgur.com/pgK6Z9ym.jpg)  
 
 <br>
   
