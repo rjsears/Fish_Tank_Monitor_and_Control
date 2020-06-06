@@ -117,8 +117,14 @@ Price: $349.00<br><br>
 <img src="https://i.imgur.com/gq4AoA6m.jpg" alt="Atlas Scientific Hydroponic Sensor Kit">
 <br><hr>
 
+#### American Marine PINPOINT pH Controller
+This is a pH monitor and controller. We utilize CO2 injection and we manage the level of injection by monitoring the pH in the tank. This controller allows us to set the desired pH level and manages our CO2 injection solenoid based on the current pH level of the tank. 
 
-
+Purchased from: <a href="https://www.amazon.com/gp/product/B001EHJO5K/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1">Amazon</a>
+<br>
+Price: $197.00<br><br>
+<img src="https://i.imgur.com/Gc3t2O9m.jpg" alt="American Marine PINPOINT pH Controller">
+<br><hr>
 
 
 
