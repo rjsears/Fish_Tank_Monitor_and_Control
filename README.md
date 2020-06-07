@@ -221,10 +221,8 @@ Next, grab the repo via git or download it above and place it in the ```/var/www
 Once you have completed all of these steps, you can change into your base directory and run the test flask file:
 
 ```
-cd /var/www/fish_tank_control
-./run.py
-
-root@scripts:/var/www/fish_tank_control# ./run.py 
+root@localhost:/root# cd /var/www/fish_tank_control/
+root@localhost:/var/www/fish_tank_control# ./run.py 
  * Serving Flask app "tank_control" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
@@ -235,6 +233,12 @@ root@scripts:/var/www/fish_tank_control# ./run.py
  * Debugger is active!
  * Debugger PIN: xxx-xxx-xxxx
 ```
+
+You should now be able to open a web browser and visit your site:
+
+http://x.x.x.x:8080
+
+If all goes well, you should be greated with the main site page. It is important that you do not use this in production, it is for debugging and testing <em><b>only</b></em>.
 
 
 
