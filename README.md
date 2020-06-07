@@ -51,10 +51,12 @@ This Repo is designed to monitor and manage our smart fish tank.  It is not real
 
 <hr>
 
-#### <a name="overview"></a>Overview
+#### <a name="overview"></a>Overview & Theory of Operation
 Using a combination of sensors and smart power strips, this repo provides the basis for someone to manage and monitor their own fresh or salt water tank. It is not really intended to be a "plug-and-play" installable repo but rather a starting point for someone that is interested in creating their own solution using parts of this repo. That being said, one could use almost everything here, but some of the elements rely on stuff I have already in place such as the power/solor monitoring that you see on the main gauge page and the influx/Grafana. Those items can still be added and I plan on updating the documentation to show how to install and configure both influxDB as well as Grafana.
 <br><br>
 The system utilizes python3, flask, MySQL8, influxDB and Grafana. There is one Arduino sketch for the Feather that I use to gather the sensor data itself. I have all of the part listed below in the parts section so you can see where to get them and the expense. Overall, it was minimal based on what it provides, at least in my opinion. 
+<br><br>
+We utilize a CO2 injection system to help with our plants. Utilizing a smart power strip we turn on the pH controller which monitors the pH in the tank. We do this about an hour before the lights come on in the tank. The pH controller is set to shoot for a full 1 point pH drop during the time the lights in the tank are on. When it turns on, it will see that the pH in the tank is roughly 7 and start to inject CO2. Once the pH in the tank drops to around 6, the controller shuts off the flow of CO2 into the tank. It will continue to do this throughout the day until we get ready to shut off our lights. Since plants only photosynthesize during the day, we don't need CO2 injection at night. Once the CO2 shuts down for the day, we automaticaly turn on an air pump to drive the pH back up to 7. This CO2 management combined with nutrient dosing provides a fantastic environment for our plants as well as our fish. It is a fine balance and our monitoring system is designed to keep the balance in place.
 <br><br>
 The system is designed to monitor(m), record(r) and provide system notifications(n) on the following parameters:
 <ul>
