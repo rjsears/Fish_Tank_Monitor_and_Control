@@ -47,8 +47,6 @@ This Repo is designed to monitor and manage our smart fish tank.  It is not real
 
 <img src="https://i.imgur.com/alipybm.jpg" alt="Screenshot of Main Control Panel">
 
-
-
 <hr>
 
 #### <a name="overview"></a>Overview & Theory of Operation
@@ -60,7 +58,6 @@ We utilize a CO2 injection system to help with our plants. Utilizing a smart pow
 <hr>
 <img src="https://i.imgur.com/eDRScnXl.jpg" alt="Our Tank">
 <hr>
-<br><br>
 The system is designed to monitor(m), record(r) and provide system notifications(n) on the following parameters:
 <ul>
   <li>Temperature (m, r, n)</li>
@@ -140,7 +137,14 @@ Price: $80.00<br><br>
 <img src="https://i.imgur.com/XdfeDtim.jpg" alt="TP-Link Kasa HS300 Smart Power Strip">
 <br><hr>
 
+#### CO2Art Pro-Elite Series Advanced Aquarium Dual Stage CO2 Regulator
+After much research, this is the CO2 regulator that we chose for our tank setup. Very high quality and the folks at CO2Art were very nice to deal with and answered a lot of questions before we purchased the unit.  
 
+Purchased from: <a href="https://www.co2art.us/products/advance-professional-aquarium-co2-dual-stage-regulator-and-solenoid-magnetic-valve?variant=22320299180114">CO2Art</a>
+<br>
+Price: $269.00<br><br>
+<img src="https://i.imgur.com/HAtn1Gxm.jpg" alt="CO2Art Pro-Elite Series Advanced Aquarium Dual Stage CO2 Regulator">
+<br><hr>
 
 
 
