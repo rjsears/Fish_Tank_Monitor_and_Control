@@ -152,9 +152,9 @@ There are a lot of moving parts to any particular project. I will try and list a
 <ul>
   <li><a href="https://httpd.apache.org/">Apache2</a> or <a href="https://www.nginx.com/">Nginx</a> Web Server</li>
   <li><a href="https://www.mysql.com/">MySQL</a> or other SQL server</li>
+  <li><a href="https://uwsgi-docs.readthedocs.io/en/latest/">Web Server Gateway Interface</a> (uWSGI) (for Flask)</li>
   <li><a href="https://www.influxdata.com/">InfluxDB</a></li>
   <li><a href="https://grafana.com/">Grafana</a></li>
-  <li><a href="https://uwsgi-docs.readthedocs.io/en/latest/">Web Server Gateway Interface</a> (uWSGI) (for Flask)</li>
   <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask (1.1.1)</a></li>
   <li><a href="https://flask-wtf.readthedocs.io/en/stable/">Flask WTF (0.14.3)</a></li>
   <li><a href="https://requests.readthedocs.io/en/master/">Requests</a></li>
@@ -162,6 +162,7 @@ There are a lot of moving parts to any particular project. I will try and list a
   <li><a href="https://dev.mysql.com/doc/connector-python/en/">MySQL Connector</a></li>
   <li><a href="https://github.com/influxdata/influxdb-python">InfluxDBClient</a></li>
   <li><a href="https://github.com/rjsears/Python-KasaSmartPowerStrip">KasaSmartPowerStrip Library</a></li>
+  <li><a href="https://docs.sentry.io/platforms/python/">Sentry-SDK</a></li>
  </ul>
 
 
