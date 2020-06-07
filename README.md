@@ -198,7 +198,7 @@ chown www-data:www-data /var/log/tank_control
 
 All directories should be owned by your web server user, in my case that is ```www-data```.
 
-Before we get started with the repo itself, we need to make sure all of our basic software has been installed. Before going any further, please install and test the following packages:
+Once that is done and before we get started with the repo itself, we need to make sure all of our basic software has been installed. Before going any further, please install and test the following packages:
 <ul>
   <li>Web Server Software - If using Apache, the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/000-default.conf">000-default.conf</a> file above should work for you.</li>
   <li>uWSGI - needed for Flask</li>
@@ -209,6 +209,7 @@ Before we get started with the repo itself, we need to make sure all of our basi
   <li><a href="https://github.com/rjsears/Python-KasaSmartPowerStrip">KasaSmartPowerStrip Library</a></li>
   <li><a href="https://www.pimpmylog.com/">Pimp My Log</a></li>
 </ul>
- 
+
+Next you will need to setup your MySQL/SQL database. Add the necessary user and use the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/fishtanks_75planted.sql">fishtanks_75planted.sql</a> file to get your structure and initial data setup. My goal is to have multiple tanks being monitored so you may end up wanting to change the name, etc. If you do, please make sure you modify all the database calls to point to the correct database. This is setup in the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/tank_control/utilities/system_info.py">system_info.py</a> file. 
 
 
