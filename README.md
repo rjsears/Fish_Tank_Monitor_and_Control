@@ -166,7 +166,8 @@ There are a lot of moving parts to any particular project. I will try and list a
   <li><a href="https://www.pimpmylog.com/">Pimp My Log</a></li>
  </ul>
  <hr>
- #### <a name="install"></a>Installation and Configuration
+ 
+#### <a name="install"></a>Installation and Configuration
 My project has been installed as the only project on my Proxmox server running <a href="https://releases.ubuntu.com/20.04/">Ubuntu Server 20.04 LTS (Focal Fossa)</a>. As such, I have no need for a virtual environment (virtenv) for Python. I would <em>highly recommend</em> using a virtual environment for this project if you are running this on anything that you use for other projects. Becuase this is the only thing on my container, it is set up such that it is the root website on my server. If you have other websites running on whatever device you are installing this on, you will have to make modifications to your apache configuration file. The config file included with this repo is based on my installation. 
 
 Also, because we are using Pimp My Logs, there is a special stanza in the routes.py that <em>must</em> be included for it to operate as I have mine configured. Again, if you have other things running on your chosen web server, configuration of PML will be different and you will have to make modifications to make it work correctly for you.
