@@ -238,7 +238,7 @@ You should now be able to open a web browser and visit your site:
 
 http://x.x.x.x:8080 (where x.x.x.x is the IP address of your installation)
 
-If all goes well, you should be greated with the main site page. It is important that you do not use this in production, it is for debugging and testing <em><b>only</b></em>.
+If all goes well, you should be greeted with the main site page. It is important that you do not use this in production, it is for debugging and testing <em><b>only</b></em>. Once you are happy with everything, switch to using Apache, Nginx or your preferred web engine.
 
 
 
