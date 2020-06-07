@@ -155,7 +155,7 @@ There are a lot of moving parts to any particular project. I will try and list a
   <li><a href="https://uwsgi-docs.readthedocs.io/en/latest/">Web Server Gateway Interface</a> (uWSGI) (for Flask)</li>
   <li><a href="https://www.influxdata.com/">InfluxDB</a></li>
   <li><a href="https://grafana.com/">Grafana</a></li>
-  <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask (1.1.1)</a></li>
+  <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask (1.1.2)</a></li>
   <li><a href="https://flask-wtf.readthedocs.io/en/stable/">Flask WTF (0.14.3)</a></li>
   <li><a href="https://requests.readthedocs.io/en/master/">Requests</a></li>
   <li><a href="https://pyyaml.org/wiki/PyYAMLDocumentation">PyYaml</a></li>
