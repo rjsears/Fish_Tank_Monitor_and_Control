@@ -4,7 +4,7 @@ requests==2.22.0
 sentry-sdk==0.14.3
 WTForms==2.2.1
 twilio==6.35.5
-PyYAML==3.12
+PyYAML==5.3.1
 pushbullet.py==0.11.0
 mod-wsgi==4.7.1
 mysql-connector==2.2.9
