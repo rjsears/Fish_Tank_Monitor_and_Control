@@ -168,6 +168,10 @@ There are a lot of moving parts to any particular project. I will try and list a
  <hr>
  
 #### <a name="install"></a>Installation and Configuration
+To begin, you need to setup the hardware you plan on using. Follow the instuctions that came with the Seneye and/or Atlas Hydroponics kit and make sure they are calibrated and saving data correctly. Verify that you have all of the necessary API information that you will need for later in the setup.
+
+Next, create any other accounts that you may need to use for your notifications. If you plan on using email notifications, please remember that your server must be configured ahead of time to send emails. This will vary based on what MTA you are using. Please read the documentation for your particular MTA and make sure you can send emails from the command line before turning on email notifications. Signup and set up Pushbullet (free) and/or Twilio ($) if you plan on using them for notifications. Make sure to note down your API credentials as we will need them later in the setup. 
+
 My project has been installed as the only project on my Proxmox server running <a href="https://releases.ubuntu.com/20.04/">Ubuntu Server 20.04 LTS (Focal Fossa)</a>. As such, I have no need for a virtual environment (virtenv) for Python. I would <em><b>highly recommend</em></b> using a virtual environment for this project if you are running this on anything that you use for other projects. Because this is the only thing in my container, it is set up such that it is the root website on my server. If you have other websites running on whatever device you are installing this on, you will have to make modifications to your apache configuration file. The config file included with this repo is based on my installation. 
 
 Also, because we are using Pimp My Logs, there is a special stanza in the routes.py that <b><em>must</em></b> be included for it to operate as I have mine configured. Again, if you have other things running on your chosen web server, configuration of PML will be different and you may have to make modifications to make it work correctly <em>for you</em>.
@@ -210,6 +214,29 @@ Once that is done and before we get started with the repo itself, we need to mak
   <li><a href="https://www.pimpmylog.com/">Pimp My Log</a></li>
 </ul>
 
-Next you will need to setup your MySQL/SQL database. Add the necessary user and use the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/fishtanks_75planted.sql">fishtanks_75planted.sql</a> file to get your structure and initial data setup. My goal is to have multiple tanks being monitored so you may end up wanting to change the name, etc. If you do, please make sure you modify all the database calls to point to the correct database. This is setup in the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/tank_control/utilities/system_info.py">system_info.py</a> file. 
+Next you will need to setup your MySQL/SQL database. Add the necessary user and use the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/fishtanks_75planted.sql">fishtanks_75planted.sql</a> file to get your structure and initial data setup. My goal is to have multiple tanks being monitored so you may end up wanting to change the name, etc. If you do, please make sure you modify all the database calls to point to the correct database. This is setup in the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/tank_control/utilities/system_info.py">system_info.py</a> file and we will modify that once we get the repo.
+
+Next, grab the repo via git or download it above and place it in the ```/var/www/fish_tank_monitor``` directory. Once you have done that, we need to modify the system_info.py file. This is the file where all of our database information and API credentials for Email, Twilio, Pushbullet, Seneye and Thingspeak are stored. Make all necessary changes and save the file. 
+
+Once you have completed all of these steps, you can change into your base directory and run the test flask file:
+
+```
+cd /var/www/fish_tank_control
+./run.py
+
+root@scripts:/var/www/fish_tank_control# ./run.py 
+ * Serving Flask app "tank_control" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: xxx-xxx-xxxx
+```
+
+
+
 
 
