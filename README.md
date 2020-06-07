@@ -126,6 +126,14 @@ Price: $197.00<br><br>
 <img src="https://i.imgur.com/Z8BgoEgm.jpg" alt="American Marine PINPOINT pH Controller">
 <br><hr>
 
+#### TP-Link Kasa HS300 Smart Power Strip
+I chose this power strip because there was a <a href="https://github.com/p-doyle/Python-KasaSmartPowerStrip">library already written</a> to interact and control it from within Python. Very simple to setup and very simple to use programmatically.   
+
+Purchased from: <a href="https://www.amazon.com/gp/product/B07G95FFN3/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1">Amazon</a>
+<br>
+Price: $80.00<br><br>
+<img src="https://i.imgur.com/XdfeDtim.jpg" alt="TP-Link Kasa HS300 Smart Power Strip">
+<br><hr>
 
 
 
