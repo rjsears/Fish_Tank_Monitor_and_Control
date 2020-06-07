@@ -116,7 +116,7 @@ This kit utilizes a Adafruit WiFi Feather Arduino clone connected to pH, EC and 
 
 Purchased from: <a href="https://www.atlas-scientific.com/kits/wi-fi-hydroponics-kit/">Atlas Scientific</a><br>
 Price: $349.00<br><br>
-<img src="https://i.imgur.com/gq4AoA6m.jpg" alt="Atlas Scientific Hydroponic Sensor Kit">
+<img src="https://i.imgur.com/HKU41Hsm.jpg" alt="Atlas Scientific Hydroponic Sensor Kit">
 <br><hr>
 
 #### American Marine PINPOINT pH Controller
