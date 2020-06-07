@@ -163,6 +163,7 @@ There are a lot of moving parts to any particular project. I will try and list a
   <li><a href="https://github.com/influxdata/influxdb-python">InfluxDBClient</a></li>
   <li><a href="https://github.com/rjsears/Python-KasaSmartPowerStrip">KasaSmartPowerStrip Library</a></li>
   <li><a href="https://docs.sentry.io/platforms/python/">Sentry-SDK</a></li>
+  <li><a href="https://www.pimpmylog.com/">Pimp My Log</a></li>
  </ul>
 
 
