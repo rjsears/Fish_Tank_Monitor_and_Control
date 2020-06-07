@@ -57,6 +57,8 @@ Using a combination of sensors and smart power strips, this repo provides the ba
 The system utilizes python3, flask, MySQL8, influxDB and Grafana. There is one Arduino sketch for the Feather that I use to gather the sensor data itself. I have all of the part listed below in the parts section so you can see where to get them and the expense. Overall, it was minimal based on what it provides, at least in my opinion. 
 <br><br>
 We utilize a CO2 injection system to help with our plants. Utilizing a smart power strip we turn on the pH controller which monitors the pH in the tank. We do this about an hour before the lights come on in the tank. The pH controller is set to shoot for a full 1 point pH drop during the time the lights in the tank are on. When it turns on, it will see that the pH in the tank is roughly 7 and start to inject CO2. Once the pH in the tank drops to around 6, the controller shuts off the flow of CO2 into the tank. It will continue to do this throughout the day until we get ready to shut off our lights. Since plants only photosynthesize during the day, we don't need CO2 injection at night. Once the CO2 shuts down for the day, we automaticaly turn on an air pump to drive the pH back up to 7. This CO2 management combined with nutrient dosing provides a fantastic environment for our plants as well as our fish. It is a fine balance and our monitoring system is designed to keep the balance in place.
+<hr>
+<img src="https://i.imgur.com/eDRScnXm.jpg" alt="Our Tank">
 <br><br>
 The system is designed to monitor(m), record(r) and provide system notifications(n) on the following parameters:
 <ul>
