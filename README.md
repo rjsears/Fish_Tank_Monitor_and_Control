@@ -172,4 +172,27 @@ My project has been installed as the only project on my Proxmox server running <
 
 Also, because we are using Pimp My Logs, there is a special stanza in the routes.py that <b><em>must</em></b> be included for it to operate as I have mine configured. Again, if you have other things running on your chosen web server, configuration of PML will be different and you may have to make modifications to make it work correctly <em>for you</em>.
 
+```
+# Project tree
 
+.
+ * [templates](./templates)
+ * [gauges](./gauges)
+ * [tank_control.old](./tank_control.old)
+   * [images](./tank_control.old/images)
+   * [__pycache__](./tank_control.old/__pycache__)
+   * [templates](./tank_control.old/templates)
+   * [static](./tank_control.old/static)
+     * [css](./tank_control.old/static/css)
+   * [utilities](./tank_control.old/utilities)
+   * [__pycache__](./tank_control.old/utilities/__pycache__)
+ * [html](./html)
+ * [fish_tank_control](./fish_tank_control)
+     * [tank_control](./fish_tank_control/tank_control)
+         * [static](./fish_tank_control/tank_control/static)
+           * [css](./fish_tank_control/tank_control/static/css)
+         * [pml](./fish_tank_control/tank_control/pml)
+         * [templates](./fish_tank_control/tank_control/templates)
+         * [utilities](./fish_tank_control/tank_control/utilities)
+             * [__pycache__](./fish_tank_control/tank_control/utilities/__pycache__)
+```
