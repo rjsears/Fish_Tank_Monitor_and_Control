@@ -186,6 +186,10 @@ Here is the directory structure that I use with my installation:
     └── utilities
 ```
 
+Logs are stored in ```/var/log/tank_control```
+
+All directories should be owned by your web server user, in my case that is ```www-data```.
+
 Before we get started with the repo itself, we need to make sure all of our basic software has been installed. Before going any further, please install and test the following packages:
 <ul>
   <li>Web Server Software - If using Apache, the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/000-default.conf">000-default.conf</a> file above should work for you.</li>
