@@ -147,6 +147,20 @@ Price: $269.00<br><br>
 <img src="https://i.imgur.com/HAtn1Gxm.jpg" alt="CO2Art Pro-Elite Series Advanced Aquarium Dual Stage CO2 Regulator">
 <br><hr>
 
-
+#### <a name="dependencies"></a>Dependencies
+As with many projects, there are a lot of moving parts to any particular project. I will try and list all of the dependencies that you will need to use this repo. It is outside the scope of this documentation to cover the installation and configuration of some of these items. Also, some of these are optional (like Influx/Grafana) depending on how much you want to impliment. Also, i don't plan on listing the more common libraries (like datetime) that come prepackaged with Python. If I had to add them (pip3 install xxx), I will list them here.
+<ul>
+  <li><a href="https://httpd.apache.org/">Apache2</a> or <a href="https://www.nginx.com/">Nginx</a> Web Server</li>
+  <li><a href="https://www.mysql.com/">MySQL</a> or other SQL server</li>
+  <li><a href="https://www.influxdata.com/">InfluxDB</a></li>
+  <li><a href="https://grafana.com/">Grafana</a></li>
+  <li><a href="https://uwsgi-docs.readthedocs.io/en/latest/">Web Server Gateway Interface</a> (uWSGI) (for Flask)</li>
+  <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask (1.1.1)</a></li>
+  <li><a href="https://flask-wtf.readthedocs.io/en/stable/">Flask WTF (0.14.3)</a></li>
+  <li><a href="https://requests.readthedocs.io/en/master/">Requests</a></li>
+  <li><a href="https://pyyaml.org/wiki/PyYAMLDocumentation">PyYaml</a></li>
+  <li><a href="https://dev.mysql.com/doc/connector-python/en/">MySQL Connector</a></li>
+  <li><a href="https://github.com/influxdata/influxdb-python">InfluxDBClient</a></li>
+ </ul>
 
 
