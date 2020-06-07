@@ -58,7 +58,7 @@ We utilize a CO2 injection system to help with our plants. Utilizing a smart pow
 <hr>
 <img src="https://i.imgur.com/eDRScnXl.jpg" alt="Our Tank">
 <hr>
-The system is designed to monitor(m), record(r) and provide system notifications(n) on the following parameters:
+The system is designed to monitor(m), record(r) and provide system notifications(n) on the following parameters:<br>
 <ul>
   <li>Temperature (m, r, n)</li>
   <li>pH (m, r, n)</li>
@@ -72,7 +72,7 @@ The system is designed to monitor(m), record(r) and provide system notifications
   <li>Kelvin (m, r)</li>
 </ul>
 
-The system is also designed for the manual entry of the following:
+The system is also designed to allow manual entry of the following parameters:
 <ul>
   <li>GH (r)</li>
   <li>KH (r)</li>
