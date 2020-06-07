@@ -172,13 +172,31 @@ My project has been installed as the only project on my Proxmox server running <
 
 Also, because we are using Pimp My Logs, there is a special stanza in the routes.py that <b><em>must</em></b> be included for it to operate as I have mine configured. Again, if you have other things running on your chosen web server, configuration of PML will be different and you may have to make modifications to make it work correctly <em>for you</em>.
 
+There are a <b><em>LOT</em></b> of different sites that will explain how to install and configure Apache, MySQL, InfluxDB, Grafana, PHP, etc so I will not waste space here duplicating those instructions.
+
+Here is the directory structure that I use with my installation:
+
 ```
-fish_tank_control/
+/var/www/fish_tank_control/
 └── tank_control
     ├── pml
     ├── static
     │   └── css
     ├── templates
     └── utilities
-        └── __pycache__
 ```
+
+Before we get started with the repo itself, we need to make sure all of our basic software has been installed. Before going any further, please install and test the following packages:
+<ul>
+  <li>Web Server Software - If using Apache, the <a href="https://github.com/rjsears/Fish_Tank_Monitor_and_Control/blob/master/000-default.conf">000-default.conf</a> file above should work for you.</ul>
+  <li>uWSGI - needed for Flask</li>
+  <li>PHP - needed for PML</li>
+  <li>MySQL or other SQL engine & libraries</li>
+  <li>InfluxDB - If you plan on using it</li>
+  <li>Grafana - If you plan on using it</li>
+  <li><a href="https://github.com/rjsears/Python-KasaSmartPowerStrip">KasaSmartPowerStrip Library</a></li>
+  <li><a href="https://www.pimpmylog.com/">Pimp My Log</a></li>
+</ul>
+ 
+
+
