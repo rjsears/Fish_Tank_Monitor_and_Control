@@ -241,6 +241,14 @@ http://x.x.x.x:8080 (where x.x.x.x is the IP address of your installation)
 If all goes well, you should be greeted with the main site page. It is important that you do not use this in production, it is for debugging and testing <em><b>only</b></em>. Once you are happy with everything, switch to using Apache, Nginx or your preferred web engine.
 
 
+## Author
+**Richard J. Sears** - *richardjsears@gmail.com* - [The RS Technical Group, Inc.](http://github.com/rjsears)
 
+## License
+This project is licensed under the MIT License - see the MIT License for details
+
+## Acknowledgments
+* **My Amazing and loving family!** My wonderful wife and kids put up with all my coding and automation projects and encouraged me in everything. Without them, this project would not be possible.
+* **My brother James**, who is a continual source of inspiration to me and others. Everyone should have a brother as awesome as mine!
 
 
