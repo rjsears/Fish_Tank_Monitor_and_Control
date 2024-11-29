@@ -6,7 +6,7 @@ WTForms==2.3.3
 twilio==6.44.2
 PyYAML==5.3.1
 pushbullet.py==0.11.0
-mod-wsgi==4.7.1
+mod-wsgi==4.9.3
 mysql-connector==2.2.9
 mysqlclient==2.0.1
 influxdb==5.3.0
